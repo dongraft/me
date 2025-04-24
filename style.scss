@@ -5,31 +5,94 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 16px;
+  color: #000;
 
   h1 {
     font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: #333;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.4em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.25em;
+  }
+
+  ul {
+    margin-left: 1.25em;
+    margin-bottom: 1em;
+  }
+
+  ul li {
+    margin-bottom: 0.3em;
   }
 
   ul ul ul {
     color: #373737;
   }
+
+  p {
+    margin: 0.3em 0 1em;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
 }
 
-/* Prevent breaks in header */
 .header-block {
-  page-break-inside: avoid;
-  break-inside: avoid;
+  text-align: left; // or center if you prefer
+  margin-bottom: 1.5em;
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0.2em 0 0.6em;
+  }
+
+  .contact {
+    font-size: 1rem;
+    margin: 0.1em 0 0.4em;
+  }
+
+  .location {
+    font-size: 0.95rem;
+    color: #444;
+    margin: 0.1em 0 0.5em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 /* Print styles */
 @media print {
   body {
-    font-size: 12pt;
+    font-size: 10pt;
     line-height: 1.6;
     color: black;
     background: white;
-    max-width: 800px;
-    padding: 0;
+    max-width: 740px;
+    padding: 24px 32px;
     margin: 0 auto;
   }
 
@@ -40,9 +103,20 @@ body {
     page-break-after: avoid;
   }
 
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
   h1, h2, h3 {
     margin-top: 0.2em;
     margin-bottom: 0.4em;
+    color: black;
+  }
+
+  h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.2em;
   }
 
   p {
@@ -54,6 +128,11 @@ body {
 
   ul {
     page-break-inside: avoid;
+    margin-left: 1.5em;
+  }
+
+  ul li {
+    margin-bottom: 0.25em;
   }
 
   a {
@@ -62,7 +141,7 @@ body {
   }
 
   a[href]:after {
-    content: ""; // Prevents long URLs from showing up in print
+    content: ""; // Hides long link URLs
   }
 
   hr {
@@ -74,4 +153,10 @@ body {
   .no-print {
     display: none;
   }
+
+
+  h3:first-of-type {
+    page-break-before: auto;
+  }
+
 }
